@@ -1,0 +1,5 @@
+<div>
+	<h2><a href="{% url 'blog:post_edit' pk=posts.pk %}">{{ posts.title }}</a></h2>
+	<p>published: {{posts.published_date}}</p>
+	<p>{{ posts.text|linebreaksbr }}</p>
+</div>

@@ -1,11 +1,29 @@
-<div>
-	<h1><a href="/">Blog</a></h1>
-</div>
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blog</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-{% for post in posts %}
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
 	<div>
-		<p>published: {{post.published_date}}</p>
-		<h2><a href="">{{ post.title }}</a></h2>
-		<p>{{ post.text|linebreaksbr }}</p>
+		<a href="{% url 'blog:postnew' %}" class="top-menu">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+		<h1><a href="/">Blog</a></h1>
 	</div>
-{% endfor %}
+
+	{% for post in posts %}
+		<div>
+			<p>published: {{post.published_date}}</p>
+			<h2><a href="{% url 'blog:postdetail' pk=post.pk %}">{{ post.title }}</a></h2>
+			<p>{{ post.text|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+</body>
+</html>
