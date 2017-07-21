@@ -25,7 +25,7 @@ SECRET_KEY = '4pfv&k2%c_$_5i&)^xde3)z=(o1%&zmeh+w39aob_(z74bv-hn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nicojl.pythonanywhere.com']
+ALLOWED_HOSTS = []
 # 'nicojl.pythonanywhere.com'
 
 
@@ -121,3 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+LOGIN_REDIRECT_URL = '/'
